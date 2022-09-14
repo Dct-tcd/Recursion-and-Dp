@@ -1,0 +1,59 @@
+          #include <bits/stdc++.h>
+          #define pin cin
+          #define ios ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+          #define ll long long int
+          #define pl cout<<"\n";
+          #define mp make_pair
+          #define pb push_back
+          #define vll vector<ll>
+          #define all(x) (x).begin(),(x).end()
+          #define f first
+          #define s second 
+          #define prv(v) for(auto x:v) cout<<x<<" ";//reverse
+          #define for0(i,n) for(ll i=0;i<n;i++)//Yes//YES
+          #define foru(i,n) for(ll i=n-1;i>=0;i--)//order_of_key
+          #define floop(i,l,n)for(int i=l;i<=n;i++)//find_by_order
+          #define for1(i,n) for(ll i=1;i<=n;i++) //pop_back()
+          using namespace std;
+          void print(vector<int>&ds,int arr[],int i,int a)
+          {
+            if (i>=a)
+            {
+              if (ds.size()==0) cout<<"{}"<<'\n';
+              else { 
+                prv(ds);
+                pl
+              }
+               return;
+            }
+            //take condition , the element is added in our subsequence 
+            ds.pb(arr[i]);
+            // call the function
+            print(ds,arr,i+1,a);
+            //not take condition , the element is not added in our subsequence 
+            ds.pop_back();
+            // call the function
+            print(ds,arr,i+1,a);
+            // for getting reverse  order just put not take condition in first
+          }
+          void solve()
+          {
+          ll ans=0,sta=0,res=0;
+          map<ll,ll>mpp;
+          set<ll>sp;
+          int arr[]={3,1,2};
+          vector<int>ds;
+          print(ds,arr,0,3);
+          }
+          int main()  
+          {
+          ios
+          ll t=1;
+          // cin>>t;
+          for1(i,t)
+          {
+          // cout<<"Case #"<<i<<": "; 
+           solve();
+          }
+           return 0;
+          }  
