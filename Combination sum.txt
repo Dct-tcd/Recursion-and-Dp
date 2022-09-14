@@ -1,0 +1,30 @@
+class Solution {
+public:
+        set<vector<int>>s;
+        void recur(vector<int>& c,vector<int>&ds,int i, int tar)
+        {
+                 if (i>=c.size())
+                {
+                       if (tar==0) s.insert(ds);  return;
+                }
+               // pick up condition
+                if (c[i]<=tar)
+                {
+                ds.push_back(c[i]);
+                recur(c,ds,i,tar-c[i]);
+                ds.pop_back();
+                }
+               // har element ko tab tak lena h jab tak tar 0 na ho jaye 
+                recur(c,ds,i+1,tar);
+         }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int tar) {
+             vector<int>sp;
+             vector<vector<int>> vop;
+             recur(candidates,sp,0,tar);
+             for(auto i:s)
+             {
+                    vop.push_back(i);
+             }
+             return vop;   
+    }
+};

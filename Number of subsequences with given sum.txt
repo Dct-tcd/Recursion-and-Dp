@@ -1,0 +1,61 @@
+          #include <bits/stdc++.h>
+          #define pin cin
+          #define ios ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+          #define ll long long int
+          #define pl cout<<"\n";
+          #define mp make_pair
+          #define pb push_back
+          #define vll vector<ll>
+          #define all(x) (x).begin(),(x).end()
+          #define f first
+          #define s second 
+          #define prv(v) for(auto x:v) cout<<x<<" ";//reverse
+          #define for0(i,n) for(ll i=0;i<n;i++)//Yes//YES
+          #define foru(i,n) for(ll i=n-1;i>=0;i--)//order_of_key
+          #define floop(i,l,n)for(int i=l;i<=n;i++)//find_by_order
+          #define for1(i,n) for(ll i=1;i<=n;i++) //pop_back()
+          using namespace std;
+          int print(int arr[],int i,int a,int sum,int curr)
+          {
+            if (i>=a)
+            {
+              if (curr==sum)
+              {
+                // conditiion satisfied
+                return 1;
+              }
+              //condition not satisfied
+               return 0;
+            }
+             //take condition , the element is added in our subsequence 
+            curr+=arr[i];
+            ll left=print(arr,i+1,a,sum,curr);
+             //not take condition , the element is not added in our subsequence
+            
+            curr-=arr[i];
+            ll right=print(arr,i+1,a,sum,curr);
+            return left+right;
+            
+          }
+          void solve()
+          {
+          ll ans=0,sta=0,res=0;
+          map<ll,ll>mpp;
+          set<ll>sp;
+          int arr[]={1,2,1};
+          int sum=2;
+          // vector<int>ds;
+          cout<<print(arr,0,3,sum,0);
+          }
+          int main()  
+          {
+          ios
+          ll t=1;
+          // cin>>t;
+          for1(i,t)
+          {
+          // cout<<"Case #"<<i<<": "; 
+           solve();
+          }
+           return 0;
+          }  
