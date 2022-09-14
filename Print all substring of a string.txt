@@ -1,0 +1,52 @@
+          #include <bits/stdc++.h>
+          #define pin cin
+          #define ios ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+          #define ll long long int
+          #define pl cout<<"\n";
+          #define mp make_pair
+          #define pb push_back
+          #define vll vector<ll>
+          #define all(x) (x).begin(),(x).end()
+          #define f first
+          #define s second 
+          #define prv(v) for(auto x:v) cout<<x<<" ";//reverse
+          #define for0(i,n) for(ll i=0;i<n;i++)//Yes//YES
+          #define foru(i,n) for(ll i=n-1;i>=0;i--)//order_of_key
+          #define floop(i,l,n)for(int i=l;i<=n;i++)//find_by_order
+          #define for1(i,n) for(ll i=1;i<=n;i++) //pop_back()
+          using namespace std;
+          void print(string s,string p,int curr)
+          {
+            if (curr>=s.length())
+            {
+              if(p.length()==0) cout<<"ppppp";
+              cout<<p<<" ";
+              return;
+            }
+            p+=s[curr];
+            print(s,p,curr+1);
+            p.pop_back();
+            print(s,p,curr+1);
+          }
+          void solve()
+          {
+          ll ans=0,sta=0,res=0;
+          map<ll,ll>mpp;
+          set<ll>sp;
+          // int sum=2;
+          // vector<int>ds;
+          string s="abcd",p="";
+          print(s,p,0);
+          }
+          int main()  
+          {
+          ios
+          ll t=1;
+          // cin>>t;
+          for1(i,t)
+          {
+          // cout<<"Case #"<<i<<": "; 
+           solve();
+          }
+           return 0;
+          }  

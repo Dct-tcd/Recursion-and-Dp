@@ -1,0 +1,32 @@
+class Solution {
+public:
+        
+       void recur(vector<int> nums,vector<int>ds,vector<vector<int>>&v,map<int,int>mpp)
+       {
+                 if (ds.size()==nums.size())
+                 {
+                         v.push_back(ds);
+                         return;
+                 }
+               for(int i=0;i<nums.size();i++)
+               {
+                       if (mpp[nums[i]]==0)
+                       {
+                               ds.push_back(nums[i]);
+                               mpp[nums[i]]++;
+                               recur(nums,ds,v,mpp);
+                               mpp[nums[i]]--;
+                               ds.pop_back();
+                       }
+               }
+               
+       }
+    vector<vector<int>> permute(vector<int>& nums) {
+        map<int,int>mpp;
+            vector<int>ds;
+            vector<vector<int>>v;
+            
+            recur(nums,ds,v,mpp);
+            return v;
+    }
+};
