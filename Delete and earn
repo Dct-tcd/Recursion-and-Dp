@@ -1,0 +1,28 @@
+class Solution {
+public:
+  
+        //Good Problem you have to just think if you have to take this one or next one forget about what happened earlier .
+        
+        int dp[500001];
+         int rec(int ind,vector<int>&n)
+ {         
+           if (ind>=n.size()) return 0;
+           if (dp[ind]!=-1) return dp[ind];
+           int pick   = (n[ind]) + rec(ind+2,n);
+           int ntpick = rec(ind+1,n);
+           return  dp[ind] =  max(pick,ntpick);
+ }
+    int deleteAndEarn(vector<int>& nums) 
+    {
+             memset(dp,-1,sizeof(dp));
+             vector<int> sums(10001, 0);
+             sort(nums.begin(), nums.end());
+        
+        for(int i=0; i<nums.size(); i++)
+        {
+            sums[nums[i]] += nums[i];
+        }
+        
+         return rec(0,sums);
+    }
+};
