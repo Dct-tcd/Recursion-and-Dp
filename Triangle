@@ -1,0 +1,17 @@
+class Solution {
+public:
+        int dp[201][201];
+        int rec(int i,int j,vector<vector<int>>& triangle)
+        {  
+                if (j==triangle.size()) return 0;
+                if (i>=triangle[j].size()||j>=triangle.size()) return 10000;
+                if (dp[i][j]!=-1) return dp[i][j];
+                int pick1 = triangle[j][i]+rec(i,j+1,triangle);
+                int pick2 = triangle[j][i]+rec(i+1,j+1,triangle);
+                return dp[i][j]=min(pick1,pick2);
+        }
+    int minimumTotal(vector<vector<int>>& triangle) {
+            memset(dp,-1,sizeof(dp));
+        return rec(0,0,triangle);
+    }
+};
