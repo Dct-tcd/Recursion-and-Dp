@@ -1,0 +1,41 @@
+class Solution {
+public:
+    int minCut(string s) {
+        int n = s.size();
+        vector<int> v(n,0);
+        for(int i=0;i<n;i++){
+            v[i] = i;
+        }
+        vector<vector<bool>> dp(n,vector<bool>(n,false));
+        for(int i=0;i<n;i++){
+            int l = i,h=i;
+            while(s[l]==s[h]){
+                dp[l][h] = true;
+                dp[h][l] = true;
+                l--;h++;
+                if(l<0 || h>=n)
+                    break;
+            }
+        }
+        for(int i=0;i<n-1;i++){
+            int l=i,h=i+1;
+            while(s[l]==s[h]){
+                dp[l][h] = true;
+                dp[h][l] = true;
+                l--;
+                h++;
+                if(l<0 || h>=n)
+                    break;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(dp[0][i])
+                v[i] = 0;
+            for(int j=1;j<=i;j++){
+                if(dp[j][i])
+                    v[i] = min(v[i],1+v[j-1]); 
+            }
+        }
+        return v[n-1];
+    }
+};
