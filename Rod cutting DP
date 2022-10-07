@@ -1,0 +1,69 @@
+//{ Driver Code Starts
+// Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+// User function Template for C++
+
+
+
+class Solution{
+  public:
+  int dp[1005][1005];
+  
+       int help(int price[], vector<int> &v,  int w ,int n  )
+       {
+       
+           if(n<=0)
+             return 0;
+            
+            if(dp[n][w]!=-1)
+            return dp[n][w];
+            
+          if(v[n-1]<=w)
+          {
+               return dp[n][w]=max(help(price,v,w-v[n-1],n)+price[n-1], help(price,v,w,n-1));
+          }
+          
+          else 
+          return dp[n][w]= help(price, v,w,n-1);
+           
+       
+        }
+        
+    int cutRod(int price[], int n) {
+        //code here
+       memset(dp,-1,sizeof(dp));
+       vector<int>v(n);
+       
+       for(int i=0;i<n;i++ )
+        v[i]=i+1;
+    
+       return help(price,v,n,n);
+    }
+};
+
+
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int a[n];
+        for (int i = 0; i < n; i++) 
+            cin >> a[i];
+            
+        Solution ob;
+
+        cout << ob.cutRod(a, n) << endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
