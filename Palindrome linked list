@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        string s="";
+        while(head!=NULL){s+=(char)(head->val+'0');head=head->next;}
+        string p=s;
+        reverse(p.begin(),p.end());
+        return s==p;
+    }
+};
