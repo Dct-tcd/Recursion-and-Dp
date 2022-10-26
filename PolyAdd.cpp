@@ -51,7 +51,7 @@ void add(struct Node *p1, struct Node *p2, struct Node *result)
       else 
       {
          result->pow = p1->pow;
-         result->coef = p1->coeff+p2->coef;
+         result->coef = p1->coef+p2->coef;
          p1 = p1->next;
          p2 = p2->next;
       }
@@ -94,12 +94,12 @@ int main()
 {
    struct Node *p1 = NULL, *p2 = NULL, *result = NULL;
    //creating polynomial1 p1 and polynomial2 p2
-   create_node(2,3,&p1);
-   create_node(1,1,&p1);
-   create_node(5,0,&p1);
-   create_node(3,4,&p2);
-   create_node(2,2,&p2);
-   create_node(8,1,&p2);
+   node_creation(2,3,&p1);
+   node_creation(1,1,&p1);
+   node_creation(5,0,&p1);
+   node_creation(3,4,&p2);
+   node_creation(2,2,&p2);
+   node_creation(8,1,&p2);
    printf("polynomial 1: ");
    display(p1);
    printf("\npolynomial 2: ");
